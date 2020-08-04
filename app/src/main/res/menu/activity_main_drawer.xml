@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!-- 위에 tools가 결정적 차이 -->
+    <group android:checkableBehavior="single">
+        <!-- 임시 Id-->
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="메인뷰" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="페이스북 페이지" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="상세 성분 정보" />
+        <!-- 임시 Id-->
+    </group>
+
+    <!-- 보류 (반으로 가르는 법 못찾음) -->
+
+    <!-- 보류 (반으로 가르는 법 못찾음) -->
+</menu>
