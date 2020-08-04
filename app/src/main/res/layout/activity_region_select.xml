@@ -10,7 +10,7 @@
 
     <!-- debug~ -->
     <TextView
-        android:id="@+id/debugTest1"
+        android:id="@+id/Experiment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#5b98d1"
@@ -19,7 +19,7 @@
         android:text="test1"/>
 
     <TextView
-        android:id="@+id/debugTest2"
+        android:id="@+id/Experiment2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="test2"/>
@@ -32,19 +32,19 @@
         android:gravity="center">
 
         <Spinner
-            android:id="@+id/siSpinner"
+            android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <Spinner
-            android:id="@+id/dongSpinner"
+            android:id="@+id/spinner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/regionEnter"
+            android:id="@+id/choose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="확인"
