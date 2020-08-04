@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-//ppt ch10 레이아웃 include 방법 참조! Github Test 1
+//ppt ch10 레이아웃 include 방법 참조! Github Test 2
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
