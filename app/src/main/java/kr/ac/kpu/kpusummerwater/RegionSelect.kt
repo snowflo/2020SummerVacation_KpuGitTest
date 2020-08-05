@@ -24,7 +24,6 @@ class RegionSelect : AppCompatActivity() {
 
         var si:String = "why" //시
         var dong:String = "this" //동
-
         // intent로 데이터 넘겨주기
 
         val waterbundle = Bundle()

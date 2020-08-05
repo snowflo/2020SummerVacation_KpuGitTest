@@ -28,26 +28,7 @@ class WaterView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_water_view)
         //툴바
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        //플로팅액션버튼
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+
         //==========================================================================================
         if (intent.hasExtra("WaterData")) { //안 옴
 
@@ -60,11 +41,6 @@ class WaterView : AppCompatActivity() {
                 SiTest = data.Si
                 DongTest = data.Dong
                 Toast.makeText(this, "시: ${SiTest}, 동: ${DongTest} ", Toast.LENGTH_SHORT).show()
-
-                //fragment
-                val fragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.nav_host_fragment, HomeFragment())
-                fragmentTransaction.commit()
             }
             else{
                 Toast.makeText(this, "전달된 내용이 없습니다", Toast.LENGTH_SHORT).show()
@@ -79,11 +55,6 @@ class WaterView : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.water_view, menu)
         return true
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
 /*
