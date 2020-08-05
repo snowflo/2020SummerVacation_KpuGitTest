@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.fragment_gallery.*
-import kotlinx.android.synthetic.main.fragment_gallery.view.*
+
 import kr.ac.kpu.kpusummerwater.R
 
 class GalleryFragment : Fragment() {
@@ -30,10 +29,7 @@ class GalleryFragment : Fragment() {
             textView.text = it
         })
         */
-        val view:View = inflater.inflate(R.layout.fragment_gallery, container, false)
-        view.testButton.setOnClickListener{
-            testButton.text = "I'm changed haha"
-        }
+
         return view
     }
 }
