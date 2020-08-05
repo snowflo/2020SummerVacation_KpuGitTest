@@ -353,5 +353,4 @@ class data(var Si: String?, var Dong: String?) : Parcelable {
             return arrayOfNulls(size)
         }
     }
-
 }
