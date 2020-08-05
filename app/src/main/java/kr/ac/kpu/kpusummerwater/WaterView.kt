@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import kr.ac.kpu.kpusummerwater.ui.home.HomeFragment
 
 //WaterViewWaterView
+//waterView snowflowar
 class WaterView : AppCompatActivity() {
 
     val fragmentManager = supportFragmentManager
