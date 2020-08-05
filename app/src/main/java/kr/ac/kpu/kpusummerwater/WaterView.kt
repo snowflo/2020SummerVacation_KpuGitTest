@@ -20,7 +20,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_water_view.*
 import kotlinx.android.synthetic.main.content_main.*
 
-//WaterViewWaterView.
+//WaterViewWaterView..
 class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
