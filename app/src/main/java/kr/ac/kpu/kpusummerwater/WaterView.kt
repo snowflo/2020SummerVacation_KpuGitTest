@@ -46,7 +46,7 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
             var SiTest:String? = null
             var DongTest:String? = null
-            
+
 
             //데이터 들어오는지 체크
             var data = intent.getParcelableExtra<data>("WaterData")

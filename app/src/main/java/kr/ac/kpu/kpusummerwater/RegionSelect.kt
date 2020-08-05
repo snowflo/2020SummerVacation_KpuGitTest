@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_region_select.*
 
+//confict test aa
 class RegionSelect : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,6 @@ class RegionSelect : AppCompatActivity() {
 
         var si:String = "why" //시
         var dong:String = "this" //동
-
         // intent로 데이터 넘겨주기
 
         val waterbundle = Bundle()
