@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-//ppt ch10 레이아웃 include 방법 참조! change test go to merge //aa
+//ppt ch10 레이아웃 include 방법 참조! change test go to merge
 //main snowflowar
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
