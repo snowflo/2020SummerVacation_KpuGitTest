@@ -23,6 +23,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_water_view.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.fragment_slideshow.*
 import okhttp3.*
 import java.io.IOException
 import java.time.LocalDate
@@ -72,24 +73,9 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         else{
             Toast.makeText(this, "전달된 이름이 없습니다", Toast.LENGTH_SHORT).show()
         }
-        //배경색 변경
-        if (classText.text == "매우 좋음"){
-            textLayout.setBackgroundColor(Color.parseColor("#C5EDF7"))
-            detailLayout.setBackgroundColor((Color.parseColor("#C5EDF7")))
-        }else if(classText.text == "좋음") {
-            textLayout.setBackgroundColor(Color.parseColor("#10C2F3"))
-            detailLayout.setBackgroundColor((Color.parseColor("#10C2F3")))
-        }else if(classText.text == "보통") {
-            textLayout.setBackgroundColor(Color.parseColor("#68B3DA"))
-            detailLayout.setBackgroundColor((Color.parseColor("#68B3DA")))
-        }else if(classText.text == "나쁨") {
-            textLayout.setBackgroundColor(Color.parseColor("#EEA20B"))
-            detailLayout.setBackgroundColor((Color.parseColor("#EEA20B")))
-        }else {
-            textLayout.setBackgroundColor(Color.parseColor("#F82A05"))
-            detailLayout.setBackgroundColor((Color.parseColor("#F82A05")))
-        }
+
     }
+
     //옵션 생성
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -290,11 +276,11 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     }
                 }
                 runOnUiThread{
-
                     var random_val = 1
                     if(resultvalue == "매우 좋음"){
                         emoImage.setImageResource(R.drawable.very_good)
-
+                        textLayout.setBackgroundColor(resources.getColor(R.color.very_good))
+                        detailLayout.setBackgroundColor(resources.getColor(R.color.very_good))
                         if((random_val % 3) == 0) {
                             messageText.text = "캬~ 물이 이보다 좋을 수 있을까요~"
                         }
@@ -306,6 +292,9 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         }
                     } else if(resultvalue == "좋음") {
                         emoImage.setImageResource(R.drawable.good)
+                        textLayout.setBackgroundColor(resources.getColor(R.color.good))
+                        detailLayout.setBackgroundColor(resources.getColor(R.color.good))
+
                         if((random_val % 3) == 0) {
                             messageText.text = "캬~ 물 맛 좋다!!"
                         }
@@ -317,6 +306,9 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         }
                     } else if(resultvalue == "보통") {
                         emoImage.setImageResource(R.drawable.normal)
+                        textLayout.setBackgroundColor(resources.getColor(R.color.normal))
+                        detailLayout.setBackgroundColor(resources.getColor(R.color.normal))
+
                         if((random_val % 3) == 0) {
                             messageText.text = "다른 물을 찾아보는게 어떨까요?"
                         }
@@ -328,6 +320,8 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         }
                     } else if(resultvalue == "나쁨") {
                         emoImage.setImageResource(R.drawable.bad)
+                        textLayout.setBackgroundColor(resources.getColor(R.color.bad))
+                        detailLayout.setBackgroundColor(resources.getColor(R.color.bad))
                         if((random_val % 3) == 0) {
                             messageText.text = "이건 물이 아니라 액체입니다"
                         }
@@ -339,6 +333,8 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                         }
                     } else {
                         emoImage.setImageResource(R.drawable.very_bad)
+                        textLayout.setBackgroundColor(resources.getColor(R.color.very_bad))
+                        detailLayout.setBackgroundColor(resources.getColor(R.color.very_bad))
                         if((random_val % 3) == 0) {
                             messageText.text = "이 물을 마셨다면 병원부터 가보세요"
                         }
