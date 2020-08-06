@@ -10,7 +10,8 @@
         android:label="KpuSummerProject"
         android:roundIcon="@mipmap/watericon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".RegionSelect"></activity>
         <activity
             android:name=".WaterView"
