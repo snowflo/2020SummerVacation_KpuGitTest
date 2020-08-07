@@ -1,29 +1,19 @@
 package kr.ac.kpu.kpusummerwater
 
 import android.content.Intent
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_water_view.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.android.synthetic.main.fragment_slideshow.*
+import kr.ac.kpu.kpusummerwater.ui.slideshow.SlideshowFragment
 import okhttp3.*
 import java.io.IOException
 import java.time.LocalDate
@@ -43,13 +33,6 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //플로팅 액션 버튼 지정
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
         //데이터 들어오는지 체크
         if (intent.hasExtra("WaterData")) {
 
@@ -74,13 +57,12 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             Toast.makeText(this, "전달된 이름이 없습니다", Toast.LENGTH_SHORT).show()
         }
 
-    }
+        refreshButton.setOnClickListener(){
+            val intent = intent
+            finish()
+            startActivity(intent)
+        }
 
-    //옵션 생성
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.water_view, menu)
-        return true
     }
     //옵션 선택
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -93,12 +75,13 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     }
     //네비게이션 드로어 옵션선택
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val itemIntent = Intent(this, MainActivity::class.java)
-        when(item.itemId){
-            R.id.item1->startActivity(itemIntent)
-            R.id.item2-> Toast.makeText(this,"item2 clicked",Toast.LENGTH_SHORT).show()
-            R.id.item3-> Toast.makeText(this,"item3 clicked",Toast.LENGTH_SHORT).show()
+        lateinit var itemIntent:Intent
+        when(item.itemId){ //이벤트는 activity 변경만
+            R.id.item1-> itemIntent = Intent(this, MainActivity::class.java)
+            R.id.item2-> itemIntent = Intent(this, RegionSelect::class.java) //여기 리뷰 액티비티 넣으면 됨.
+            R.id.item3-> itemIntent = Intent(this, SlideshowFragment::class.java)
         }
+        startActivity(itemIntent)
         return false
     }
     //뒤로가기 재정의 (네비게이션 드로어 - > 뒤로가기 프로그램 종료 방지함)

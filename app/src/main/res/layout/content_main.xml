@@ -69,14 +69,6 @@
                 android:text="2020/07/28"
                 android:textSize="21sp"
                 android:paddingRight="5dp"/>
-            <TextView
-                android:id="@+id/timeText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="time"
-                android:text="03:27"
-                android:textSize="21sp"
-                android:paddingLeft="5dp"/>
         </LinearLayout>
 
         <ImageView

@@ -1,5 +1,7 @@
 package kr.ac.kpu.kpusummerwater.ui.slideshow
 
-class detail_info (val name:String, val num:String) {
+import android.widget.ImageView
+
+class detail_info (val img:String, val name:String) {
 
 }
