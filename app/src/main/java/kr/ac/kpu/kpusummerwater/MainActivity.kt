@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
             //startActivity(mainIntent)
             showSettingPopup()
         }
+        loginButton.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun showSettingPopup(){
         val placeArray = arrayOf("현재 장소","다른 장소")

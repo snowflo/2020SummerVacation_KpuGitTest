@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegionSelect"></activity>
-        <activity android:name=".ui.slideshow.SlideshowFragment"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegionSelect" />
+        <activity android:name=".ui.slideshow.SlideshowFragment" />
         <activity
             android:name=".WaterView"
             android:label="@string/title_activity_water_view"
@@ -26,4 +27,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
