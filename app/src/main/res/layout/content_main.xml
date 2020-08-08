@@ -16,91 +16,99 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/placeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="8dp"
-            android:text="(현재위치)"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:id="@+id/cityLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/siText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:text="시흥시"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/dongText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:text="정왕동"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/timeLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/dateText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:text="2020/07/28"
-                android:textSize="21sp"
-                android:paddingRight="5dp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/emoImage"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            app:srcCompat="@drawable/watericon" />
-
-        <TextView
-            android:id="@+id/classText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="매우 좋음"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/messageText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="맑은물 많이 마시세요~"
-            android:textSize="18sp" />
-        <!-- 이미지 넣어서 절취선 -->
-        <ImageView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_baseline_linear_scale_24" />
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/placeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginVertical="8dp"
+                    android:text="(현재위치)"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/cityLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/siText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:text="시흥시"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/dongText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="정왕동"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/timeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/dateText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:text="2020/07/28"
+                        android:textSize="21sp"
+                        android:paddingRight="5dp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/emoImage"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    app:srcCompat="@drawable/watericon" />
+
+                <TextView
+                    android:id="@+id/classText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="매우 좋음"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/messageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="맑은물 많이 마시세요~"
+                    android:textSize="18sp" />
+                <!-- 이미지 넣어서 절취선 -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_baseline_linear_scale_24" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <LinearLayout

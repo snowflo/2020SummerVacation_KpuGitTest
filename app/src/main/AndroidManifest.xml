@@ -3,6 +3,8 @@
     package="kr.ac.kpu.kpusummerwater">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -12,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegionSelect"></activity>
-        <activity android:name=".ui.slideshow.SlideshowFragment"></activity>
+        <activity android:name=".MapTest"></activity>
+        <activity android:name=".RegionSelect" />
+        <activity android:name=".ui.slideshow.SlideshowFragment" />
         <activity
             android:name=".WaterView"
             android:label="@string/title_activity_water_view"
@@ -25,5 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".GpsTracker" />
     </application>
+
 </manifest>

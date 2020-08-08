@@ -17,14 +17,16 @@ class detail_adapter(val context:Context, val detailList:ArrayList<detail_info>)
 
         //생성된 뷰를 item.xml과 연결
         val detailImage =view.findViewById<ImageView>(R.id.detailImg)
-        val detailname = view.findViewById<TextView>(R.id.detailName)
+        val detailTitle = view.findViewById<TextView>(R.id.detailTitle)
+        val detailDate:TextView = view.findViewById<TextView>(R.id.detailDate)
 
         //데이터 옮기기
         val details = detailList[position]
         //item.xml      //detail_info.class
         val resourceId = context.resources.getIdentifier(details.img, "drawable", context.packageName)
         detailImage.setImageResource(resourceId)
-        detailname.text = details.name
+        detailTitle.text = details.title
+        detailDate.text = details.date
         return view
     }
 
