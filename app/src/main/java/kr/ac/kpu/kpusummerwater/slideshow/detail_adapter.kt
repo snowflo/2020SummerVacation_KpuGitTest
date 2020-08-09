@@ -1,4 +1,4 @@
-package kr.ac.kpu.kpusummerwater.ui.slideshow
+package kr.ac.kpu.kpusummerwater.slideshow
 
 import android.content.Context
 import android.view.LayoutInflater

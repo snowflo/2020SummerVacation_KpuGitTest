@@ -13,7 +13,10 @@ import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_water_view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import kr.ac.kpu.kpusummerwater.ui.slideshow.SlideshowFragment
+import kr.ac.kpu.kpusummerwater.sampledata.ui.review.Review
+import kr.ac.kpu.kpusummerwater.sampledata.ui.review.ReviewList
+import kr.ac.kpu.kpusummerwater.slideshow.SlideshowFragment
+import kr.ac.kpu.kpusummerwater.ui.Review.News
 import okhttp3.*
 import java.io.IOException
 import java.time.LocalDate
@@ -78,8 +81,9 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         lateinit var itemIntent:Intent
         when(item.itemId){ //이벤트는 activity 변경만
             R.id.item1-> itemIntent = Intent(this, MainActivity::class.java)
-            R.id.item2-> itemIntent = Intent(this, RegionSelect::class.java) //여기 리뷰 액티비티 넣으면 됨.
+            R.id.item2-> itemIntent = Intent(this, ReviewList::class.java) //여기 리뷰 액티비티 넣으면 됨.
             R.id.item3-> itemIntent = Intent(this, SlideshowFragment::class.java)
+            R.id.item4-> itemIntent = Intent(this, News::class.java)
         }
         startActivity(itemIntent)
         return false
