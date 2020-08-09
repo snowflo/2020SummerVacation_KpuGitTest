@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+    <!-- 이미지 크기 변경하고싶으면 변경 -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/detailImg"
         android:layout_width="200dp"
