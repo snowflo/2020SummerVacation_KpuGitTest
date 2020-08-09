@@ -12,33 +12,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/signupActivity_edittext_email"
+            android:id="@+id/email_text"
             android:hint="이메일"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/signupActivity_edittext_name"
-            android:hint="이름"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/signupActivity_edittext_password"
+            android:id="@+id/password_text"
             android:hint="패스워드"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
-        android:id="@+id/signupActivity_button_signup"
+        android:text="생성하기"
+        android:id="@+id/signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/google_login_button"
+        android:text="Google Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
