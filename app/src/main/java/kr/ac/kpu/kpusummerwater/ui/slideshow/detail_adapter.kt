@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_slideshow.*
+import kr.ac.kpu.kpusummerwater.MainActivity
 import kr.ac.kpu.kpusummerwater.R
 
-class detail_adapter(val context:Context, val detailList:ArrayList<detail_info>) : BaseAdapter() {
+class detail_adapter(val context:Context, val detailList: ArrayList<detail_info>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         //뷰 생성
@@ -25,10 +28,16 @@ class detail_adapter(val context:Context, val detailList:ArrayList<detail_info>)
         val resourceId = context.resources.getIdentifier(details.img, "drawable", context.packageName)
         detailImage.setImageResource(resourceId)
         detailname.text = details.name
+
+
+
         return view
     }
 
+
+
     override fun getItem(position: Int): Any {
+
         return detailList[position]
     }
 
@@ -39,5 +48,6 @@ class detail_adapter(val context:Context, val detailList:ArrayList<detail_info>)
     override fun getCount(): Int {
         return detailList.size
     }
+
 
 }
