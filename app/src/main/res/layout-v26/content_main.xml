@@ -24,7 +24,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginVertical="8dp"
             android:text="(현재위치)"
-            android:textSize="18sp" />
+            android:fontFamily="@font/hangulnuri"
+            android:textSize="18sp"
+            />
 
         <LinearLayout
             android:id="@+id/cityLayout"
@@ -32,7 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:id="@+id/siText"
@@ -40,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:text="시흥시"
+                android:text="로딩중"
+                android:fontFamily="@font/hangulnuribold"
                 android:font="@font/hangulnuribold"
                 android:textStyle="bold"
                 android:textSize="24sp" />
@@ -51,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="정왕동"
+                android:text="로딩중"
+                android:fontFamily="@font/hangulnuribold"
                 android:font="@font/hangulnuribold"
                 android:textStyle="bold"
                 android:textSize="24sp" />
@@ -67,12 +72,13 @@
 
             <TextView
                 android:id="@+id/dateText"
-                android:layout_width="match_parent"
+                android:layout_width="131dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/hangulnuri"
                 android:inputType="date"
-                android:text="2020/07/28"
-                android:textSize="21sp"
-                android:paddingRight="5dp"/>
+                android:gravity="center"
+                android:text="로딩중"
+                android:textSize="21sp" />
         </LinearLayout>
 
         <ImageView
@@ -89,8 +95,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="매우 좋음"
+            android:text="로딩중"
             android:textStyle="bold"
+            android:fontFamily="@font/hangulnuribold"
             android:textSize="24sp" />
 
         <TextView
@@ -99,7 +106,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="맑은물 많이 마시세요~"
+            android:text="로딩중"
+            android:fontFamily="@font/hangulnuri"
             android:textSize="18sp" />
         <!-- 이미지 넣어서 절취선 -->
         <ImageView
@@ -147,6 +155,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="성분"
+                            android:fontFamily="@font/hangulnuribold"
                             android:textStyle="bold"
                             android:textSize="18sp" />
 
@@ -156,6 +165,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="수치"
+                            android:fontFamily="@font/hangulnuribold"
                             android:textStyle="bold"
                             android:textSize="18sp" />
 
@@ -165,6 +175,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="상태"
+                            android:fontFamily="@font/hangulnuribold"
                             android:textStyle="bold"
                             android:textSize="18sp" />
                     </TableRow>
@@ -180,6 +191,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="PH"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -187,7 +199,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="0.05"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -195,7 +208,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="좋음"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                     </TableRow>
@@ -217,7 +231,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="0.05"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -225,7 +240,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="좋음"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
                     </TableRow>
 
@@ -246,7 +262,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="0.05"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -254,7 +271,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="좋음"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
                     </TableRow>
 
@@ -275,7 +293,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="0.05"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -283,7 +302,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="좋음"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
                     </TableRow>
 
@@ -304,7 +324,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="0.05"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -312,7 +333,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="좋음"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
                     </TableRow>
 
@@ -333,7 +355,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="0.05"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
 
                         <TextView
@@ -341,7 +364,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="좋음"
+                            android:text="로딩중"
+                            android:fontFamily="@font/hangulnuri"
                             android:textSize="18sp" />
                     </TableRow>
                 </TableLayout>
