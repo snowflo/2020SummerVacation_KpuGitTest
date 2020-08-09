@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "632319894833",
+    "firebase_url": "https://kpusummerwater.firebaseio.com",
+    "project_id": "kpusummerwater",
+    "storage_bucket": "kpusummerwater.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632319894833:android:5b00e0d593eaaae43b7c10",
+        "android_client_info": {
+          "package_name": "kr.ac.kpu.kpusummerwater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632319894833-v6uqhtraf1hu931t0b8em0muotdqkb14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.ac.kpu.kpusummerwater",
+            "certificate_hash": "11bf90be68035400baded327bb5fed2ca1b58d19"
+          }
+        },
+        {
+          "client_id": "632319894833-27vambcqps6hjcvhegnnaps9guae366l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5miZlslBpNPGVaYL7nOwBw41xGEzK-AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632319894833-27vambcqps6hjcvhegnnaps9guae366l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
