@@ -1,11 +1,20 @@
 package kr.ac.kpu.kpusummerwater
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
@@ -13,18 +22,69 @@ import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_water_view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import kr.ac.kpu.kpusummerwater.sampledata.ui.review.Review
 import kr.ac.kpu.kpusummerwater.sampledata.ui.review.ReviewList
 import kr.ac.kpu.kpusummerwater.slideshow.SlideshowFragment
 import kr.ac.kpu.kpusummerwater.ui.Review.News
 import okhttp3.*
 import java.io.IOException
 import java.time.LocalDate
+import java.util.*
 
 //WaterViewWaterView..
-class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var appBarConfiguration: AppBarConfiguration
+//지도 추가 코드 검색 ctrl + f -> debug
 
+//https://bottlecok.tistory.com/54
+//https://shihis123.tistory.com/entry/Android-GPS-%ED%98%84%EC%9E%AC-%EC%9C%84%EC%B9%98-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0LocationLatitudeLongitude
+//https://hyeran-story.tistory.com/75
+class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener { //2번째 링크 참조.
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private var checkActivity: Int = 1 //체크
+
+    //debug
+    var locationManager : LocationManager? = null
+    private val REQUEST_CODE_LOCATION : Int = 2
+    var currentLocation : String = ""
+    var latitude : Double? = null
+    var longitude : Double? = null
+
+    private fun getCurrentLoc(){
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager?
+        var userLocation : Location = getLatLng()
+        if (userLocation != null){
+            latitude = userLocation.latitude
+            longitude = userLocation.longitude
+            Log.d("CheckCurrentLocation","현재 내 위치 값 : $latitude, $longitude")
+
+            var mGeocoder = Geocoder(applicationContext, Locale.KOREAN)
+            var mResultList : List<Address>? = null
+
+            try{ //???
+                mResultList = mGeocoder.getFromLocation(
+                    latitude!!, longitude!!, 1
+                )
+            } catch (e:IOException){
+                e.printStackTrace()
+            }
+            if (mResultList != null){
+                Log.d("CheckCurrentLocation",mResultList[0].getAddressLine(0))
+                currentLocation = mResultList[0].getAddressLine(0)
+                //currentLocation = currentLocation.substring(11)
+            }
+        }
+    }
+
+    private fun getLatLng(): Location {
+        var currentLatLng: Location? = null
+        if(ActivityCompat.checkSelfPermission(applicationContext,Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(applicationContext,Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
+            getLatLng()
+        }else{
+            val locationProvider = LocationManager.GPS_PROVIDER
+            currentLatLng = locationManager?.getLastKnownLocation(locationProvider)
+        }
+        return currentLatLng!!
+    }
+    //debug -end
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,12 +112,14 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
                 data.Si?.let { fetchJson(it) }
             }
-            else{
+            else{ //현재위치
                 Toast.makeText(this, "전달된 내용이 없습니다", Toast.LENGTH_SHORT).show()
             }
         }
         else{
-            Toast.makeText(this, "전달된 이름이 없습니다", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "이 앱은 GPS(위치)를 켜야 이용 가능합니다! \n GPS(위치)를 키고 새로고침을 눌러주세요.", Toast.LENGTH_SHORT).show()
+            checkActivity=0
+            //debug
         }
 
         refreshButton.setOnClickListener(){
@@ -67,6 +129,7 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         }
 
     }
+
     //옵션 선택
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -98,6 +161,8 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             super.onBackPressed()
         }
     }
+
+    //debug -end
 
     fun fetchJson(cityName: String){
 
@@ -142,7 +207,6 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         }
 
         val onlyDate: LocalDate = LocalDate.now()
-
 
         //val url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/waterinfos/waterquality/daywater/list?serviceKey=ZqjrQQ5DoczvhNkENLU%2BBTlJBXmacSi%2BSTnkdmFdQOkTZf8jxK%2BpgnQnONs5h35H%2BYhNIN7QSto2e9NhB%2Bgj1g%3D%3D&sgccd<99999&sitecd<99999&stdt="+onlyDate+"&eddt="+onlyDate+"&_type=json"
         //val url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/waterinfos/waterquality/daywater/list?serviceKey=ZqjrQQ5DoczvhNkENLU%2BBTlJBXmacSi%2BSTnkdmFdQOkTZf8jxK%2BpgnQnONs5h35H%2BYhNIN7QSto2e9NhB%2Bgj1g%3D%3D&sgccd<99999&sitecd<99999&stdt=20190815&eddt=20190815&_type=json"
@@ -349,14 +413,10 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     clText3.text = Cl_good
                 }
 
-
-
-
             }
             override fun onFailure(call: Call, e: IOException) {
                 println("리퀘스트 실패")
             }
         })
     }
-
 }
