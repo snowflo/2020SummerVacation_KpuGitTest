@@ -16,7 +16,7 @@ class ReviewAdapter (val context: Context, val ReviewList:ArrayList<ReviewInfo>)
         val RegionTitle = view.findViewById<TextView>(R.id.RegionTitle)
         val ReviewTitle =view.findViewById<TextView>(R.id.ReviewTitle)
         val ReviewMaker = view.findViewById<TextView>(R.id.ReviewMaker)
-        val ReviewDate: TextView = view.findViewById<TextView>(R.id.ReviewDate)
+        val ReviewDate:TextView = view.findViewById<TextView>(R.id.ReviewDate)
 
         //데이터 옮기기
         val Reviews = ReviewList[position]

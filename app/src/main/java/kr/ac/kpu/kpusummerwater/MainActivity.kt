@@ -19,12 +19,6 @@ class MainActivity : AppCompatActivity() {
             //startActivity(mainIntent)
             showSettingPopup()
         }
-        //test
-        go.setOnClickListener(){
-            val testIntent = Intent(this,MapTest::class.java)
-            startActivity(testIntent)
-        }
-
     }
     private fun showSettingPopup(){
         val placeArray = arrayOf("현재 장소","다른 장소")

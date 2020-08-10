@@ -1,5 +1,6 @@
 package kr.ac.kpu.kpusummerwater.ui.Review
 
-class NewsInfo (val img:String, val title:String, val date:String) {
-
+class NewsInfo (var title:String, var link:String) {
+    //var img:String, var title:String, var date:String, var link:String
+    //생성자
 }

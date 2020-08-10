@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.Review.News"></activity>
+        <activity android:name=".ui.Review.News" />
         <activity
             android:name=".sampledata.ui.review.ReviewList"
             android:label="@string/title_activity_review_list"
@@ -40,7 +40,7 @@
             android:name=".MapTest"
             android:label="@string/title_activity_map_test" />
         <activity android:name=".RegionSelect" />
-        <activity android:name="kr.ac.kpu.kpusummerwater.slideshow.SlideshowFragment" />
+        <activity android:name=".slideshow.SlideshowFragment" />
         <activity
             android:name=".WaterView"
             android:label="@string/title_activity_water_view"
