@@ -15,15 +15,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="지역"
-            android:textSize="25dp"/>
+            android:text="게시물번호"
+            android:textSize="23dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="0.2">
+        android:layout_weight="0.4">
 
         <TextView
             android:id="@+id/ReviewTitle"
