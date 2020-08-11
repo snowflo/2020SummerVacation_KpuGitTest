@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".sampledata.ui.review.GiveMessage"></activity>
+        <activity android:name=".sampledata.ui.review.Login" />
         <activity android:name=".ui.Review.News" />
         <activity
             android:name=".sampledata.ui.review.ReviewList"
@@ -36,9 +38,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapTest"
-            android:label="@string/title_activity_map_test" />
+
         <activity android:name=".RegionSelect" />
         <activity android:name=".slideshow.SlideshowFragment" />
         <activity

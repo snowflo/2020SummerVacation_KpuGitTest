@@ -11,9 +11,15 @@
             android:icon="@drawable/ic_baseline_home_24"
             android:title="홈으로" />
         <item
+            android:id="@+id/item5"
+            android:icon="@drawable/ic_baseline_lock_24"
+            android:title="로그인" />
+        <!--
+        <item
             android:id="@+id/item2"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="리뷰" />
+            android:title="피드백" />
+            -->
         <item
             android:id="@+id/item3"
             android:icon="@drawable/ic_baseline_view_list_24"

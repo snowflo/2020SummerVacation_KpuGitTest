@@ -2,21 +2,25 @@ package kr.ac.kpu.kpusummerwater.sampledata.ui.review
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ListView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.content_review_list.*
 import kotlinx.android.synthetic.main.fragment_slideshow.*
 import kr.ac.kpu.kpusummerwater.R
 import kr.ac.kpu.kpusummerwater.slideshow.detail_adapter
+import org.jetbrains.anko.find
 
 class ReviewList : AppCompatActivity() {
 
-    lateinit var ref: DatabaseReference
-    lateinit var ReviewList:MutableList<ReviewInfo>
-    lateinit var listview: ListView
+    lateinit var mRecyclerView:RecyclerView
+    lateinit var mDatabase:DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,28 +32,13 @@ class ReviewList : AppCompatActivity() {
         ReviewListView.adapter = reviews
         */
 
-        ReviewList = mutableListOf()
-        listview = findViewById(R.id.ReviewListView)
-        ref = FirebaseDatabase.getInstance().getReference("ReviewInfo") //???
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+        mRecyclerView = findViewById(R.id.ReviewListView)
+        mRecyclerView.setHasFixedSize(true)
+        mRecyclerView.setLayoutManager(LinearLayoutManager(this))
 
-        ref.addValueEventListener(object :ValueEventListener{
-            override fun onCancelled(p0: DatabaseError?) {
+        logRecyclerView()
 
-            }
-
-            override fun onDataChange(p0: DataSnapshot?) {
-                if(p0!!.exists()){
-                    ReviewList.clear()
-                    for(e in p0.children){
-                        val reviews = e.getValue(ReviewInfo::class.java)
-                        ReviewList.add(reviews!!)
-                    }
-                    val adapter = ReviewAdapter(this@ReviewList,R.layout.review_detail, ReviewList as ArrayList<ReviewInfo>) //??? 6:39
-                    listview.adapter = adapter
-                }
-            }
-
-        })
 
         val intent = Intent(this,Review::class.java)
 
@@ -60,4 +49,32 @@ class ReviewList : AppCompatActivity() {
             startActivity(intent) //리뷰창으로
         }
     }
+
+    private fun logRecyclerView() {
+
+        var FirebaseRecyclerAdapter = object : FirebaseRecyclerAdapter<ReviewInfo, ReviewViewHolder>(
+
+            ReviewInfo::class.java,
+            R.layout.review_detail,
+            ReviewViewHolder::class.java,
+            mDatabase
+        ){
+            override fun populateViewHolder(viewHolder: ReviewViewHolder?, model: ReviewInfo?, position: Int) {
+
+                //viewHolder?.mView.
+
+
+            }
+
+        }
+
+        mRecyclerView.adapter = FirebaseRecyclerAdapter
+
+    }
+
+    class ReviewViewHolder(var mView:View) : RecyclerView.ViewHolder(mView) {
+
+    }
+
+
 }

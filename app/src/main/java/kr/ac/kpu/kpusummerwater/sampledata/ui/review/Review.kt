@@ -38,7 +38,7 @@ class Review : AppCompatActivity() {
         map["review"] = review
 
         FirebaseDatabase.getInstance().reference
-            .child("users")
+            .child("Review")
             .push() //push
             .setValue(map)
     }

@@ -22,7 +22,7 @@ class ReviewAdapter (val context: Context,val id: Int ,val ReviewList:ArrayList<
         val Reviews = ReviewList[position]
         //item.xml      //detail_info.class
 
-        RegionTitle.text = Reviews.id.toString()
+        //RegionTitle.text = Reviews.id.toString()
         ReviewTitle.text = Reviews.title
         ReviewMaker.text = Reviews.maker
         ReviewDate.text = Reviews.date

@@ -9,15 +9,19 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_water_view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kr.ac.kpu.kpusummerwater.sampledata.ui.review.GiveMessage
+import kr.ac.kpu.kpusummerwater.sampledata.ui.review.Login
 import kr.ac.kpu.kpusummerwater.sampledata.ui.review.Review
 import kr.ac.kpu.kpusummerwater.sampledata.ui.review.ReviewList
 import kr.ac.kpu.kpusummerwater.slideshow.SlideshowFragment
 import kr.ac.kpu.kpusummerwater.ui.Review.News
 import okhttp3.*
+import org.jetbrains.anko.toast
 import java.io.IOException
 import java.time.LocalDate
 
@@ -25,6 +29,7 @@ import java.time.LocalDate
 class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    var currentUser = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,12 +85,20 @@ class WaterView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         lateinit var itemIntent:Intent
         when(item.itemId){ //이벤트는 activity 변경만
-            R.id.item1-> itemIntent = Intent(this, MainActivity::class.java)
-            R.id.item2-> itemIntent = Intent(this, ReviewList::class.java) //여기 리뷰 액티비티 넣으면 됨.
-            R.id.item3-> itemIntent = Intent(this, SlideshowFragment::class.java)
-            R.id.item4-> itemIntent = Intent(this, News::class.java)
+            R.id.item1-> itemIntent = Intent(this, MainActivity::class.java) //홈
+            R.id.item3-> itemIntent = Intent(this, SlideshowFragment::class.java) //상세
+            R.id.item4-> itemIntent = Intent(this, News::class.java) //뉴스
+            R.id.item5-> itemIntent = Intent(this, Login::class.java) //로그인
+            /*
+            R.id.item2->
+                if(currentUser!=null) { //피드백
+                    itemIntent = Intent(this, Review::class.java)
+                }else{
+                    itemIntent = Intent(this,GiveMessage::class.java)
+                }
+             */
         }
-        startActivity(itemIntent)
+            startActivity(itemIntent)
         return false
     }
     //뒤로가기 재정의 (네비게이션 드로어 - > 뒤로가기 프로그램 종료 방지함)
