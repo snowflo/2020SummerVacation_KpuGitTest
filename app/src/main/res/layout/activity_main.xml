@@ -22,10 +22,4 @@
         android:layout_height="wrap_content"
         android:text="우리 동네 수질 확인"
         android:textSize="24dp"/>
-
-    <Button
-        android:id="@+id/go"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 </LinearLayout>

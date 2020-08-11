@@ -19,12 +19,6 @@ class MainActivity : AppCompatActivity() {
             //startActivity(mainIntent)
             showSettingPopup()
         }
-        //test
-
-        go.setOnClickListener(){
-            val testIntent = Intent(this,GetAddressTest::class.java)
-            startActivity(testIntent)
-        }
     }
     private fun showSettingPopup(){
         val placeArray = arrayOf("현재 장소","다른 장소")
@@ -35,14 +29,12 @@ class MainActivity : AppCompatActivity() {
             .setSingleChoiceItems(placeArray, -1, { _, which ->
                 if(which == 0){
                     mainIntent = Intent(this,WaterView::class.java)
-
                 }
                 else{
                     mainIntent = Intent(this,RegionSelect::class.java)
                 }
             } )
             .setPositiveButton("확인"){ dialog, which ->
-                mainIntent.putExtra("check",0)
                 startActivity(mainIntent)
             }
             .setNeutralButton("취소",null)
